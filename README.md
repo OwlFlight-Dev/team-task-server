@@ -1,9 +1,24 @@
-Installation required
+# Backend Installation Guide
+
+## Prerequisites
+Before getting started, ensure that you have the following dependencies installed on your system:
 - PHP 8.3.6
 - Composer 2.7.2
 - MySQL CLI 8.3.0
 
-Steps after cloning
-1. run `composer install`
-2. create .env in root folder and copy env.example into the .env that is just created
-3. run `php artisan migrate --seed` to migrate the tables and create some dummy data with seeder
+## Step-by-Step Installation
+
+### 1. Clone the Repository
+```bash
+git clone git@github.com:OwlFlight-Dev/team-task-server.git
+```
+
+### 2. Install Dependencies
+```bash
+composer install
+```
+
+### 3. Migrate Database Table with Dummy Data
+```bash
+php artisan migrate --seed
+```
