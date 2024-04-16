@@ -57,19 +57,22 @@ class TaskService
                 return $query->where('description', 'like', '%' . $request->input('description') . '%');
             })
             ->when($request->filled('image_attachment'), function ($query) use ($request) {
-                return $query->where('image_attachment', $request->input('image_attachment'));
+                return $query->where('image_attachment', 'like', '%' . $request->input('image_attachment') . '%');
             })
             ->when($request->filled('author'), function ($query) use ($request) {
-                return $query->where('author', $request->input('author'));
+                return $query->where('author', 'like', '%' . $request->input('author') . '%');
             })
             ->when($request->filled('assignee'), function ($query) use ($request) {
-                return $query->where('assignee', $request->input('assignee'));
+                return $query->where('assignee', 'like', '%' . $request->input('assignee') . '%');
+            })
+            ->when($request->filled('status'), function ($query) use ($request) {
+                return $query->where('status', 'like', '%' . $request->input('status') . '%');
             })
             ->when($request->filled('created_at'), function ($query) use ($request) {
-                return $query->whereDate('created_at', $request->input('createdAt'));
+                return $query->where('created_at', 'like', '%' . $request->input('created_at') . '%');
             })
             ->when($request->filled('updated_at'), function ($query) use ($request) {
-                return $query->whereDate('updated_at', $request->input('updated_at'));
+                return $query->where('updated_at', 'like', '%' . $request->input('updated_at') . '%');
             })
             ->get();
     }

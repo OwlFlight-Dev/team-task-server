@@ -26,7 +26,7 @@ class UpdateTaskRequest extends FormRequest
             'priority' => 'integer|min:0|max:10',
             'project_id' => 'integer|exists:projects,id',
             'description' => 'string|max:50',
-            'imageAttachment' => 'string',
+            'image_attachment' => 'string',
             'author' => 'string',
             'assignee' => 'string',
         ];

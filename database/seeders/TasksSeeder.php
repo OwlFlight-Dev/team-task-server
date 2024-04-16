@@ -19,6 +19,9 @@ class TasksSeeder extends Seeder
         $now = now();
         $tasks = [];
         $project_priorities = [];
+
+        $nameLists = ['John Doe', 'Alice Smith', 'Bob Johnson', 'Emily Brown', 'Michael Wilson', 'Sarah Lee', 'David Jones', 'Olivia Davis', 'James Taylor', 'Emma Martinez'];
+
         foreach ($project_ids as $project_id) {
             $project_priorities[$project_id] = 0;
         }
@@ -29,9 +32,12 @@ class TasksSeeder extends Seeder
 
             $tasks[] = [
                 'project_id' => $project_id,
-                'priority' => $project_priorities[$project_id],
                 'title' => "Task " . $project_priorities[$project_id],
                 'description' => "Description for Task " . $project_priorities[$project_id],
+                'image_attachment' => "Image Attachment for " . $project_priorities[$project_id],
+                'author' => $nameLists[array_rand($nameLists)],
+                'assignee' => $nameLists[array_rand($nameLists)],
+                'priority' => $project_priorities[$project_id],
                 
                 'created_at' => $now,
                 'updated_at' => $now,

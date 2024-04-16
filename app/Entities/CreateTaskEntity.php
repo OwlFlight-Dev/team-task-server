@@ -9,8 +9,8 @@ class CreateTaskEntity
     public string $description; // nullable
     public string $assignee; // nullable
     public string $priority; // default 0
-    public string $imageAttachment; // nullable
-    public string $projectId; // nullable
+    public string $image_attachment; // nullable
+    public string $project_id; // nullable
 
     public function __construct(string $title, string $author)
     {
@@ -47,20 +47,20 @@ class CreateTaskEntity
 
      /**
      * Set image attachment
-     * @param string $imageAttachment
+     * @param string $image_attachment
      */
-    public function setImageAttachment(string $imageAttachment): void
+    public function setImageAttachment(string $image_attachment): void
     {
-        $this->imageAttachment = $imageAttachment;
+        $this->image_attachment = $image_attachment;
     }
 
     /**
      * Set project id
-     * @param string $projectId
+     * @param string $project_id
      */
-    public function setProjectId(string $projectId): void
+    public function setProjectId(string $project_id): void
     {
-        $this->projectId = $projectId;
+        $this->project_id = $project_id;
     }
 
 }

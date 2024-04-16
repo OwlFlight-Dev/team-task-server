@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Task;
 
+use App\Definitions\TaskStatus;
 use Illuminate\Foundation\Http\FormRequest;
 
 class SearchTasksRequest extends FormRequest
@@ -29,6 +30,7 @@ class SearchTasksRequest extends FormRequest
             'image_attachment' => 'string',
             'author' => 'string',
             'assignee' => 'string',
+            'status' => 'in:' . implode(',', TaskStatus::getAllStatuses()), // validate if status passed is a valid status
             'created_at' => 'string',
             'updated_at' => 'string',
         ];

@@ -6,9 +6,9 @@ class UpdateTaskEntity
 {
     public string $title;
     public string $priority;
-    public string $projectId;
+    public string $project_id;
     public string $description;
-    public string $imageAttachment;
+    public string $image_attachment;
     public string $author;
     public string $assignee;
 
@@ -32,11 +32,11 @@ class UpdateTaskEntity
 
      /**
      * Set project id
-     * @param string $projectId
+     * @param string $project_id
      */
-    public function setProjectId(string $projectId): void
+    public function setProjectId(string $project_id): void
     {
-        $this->projectId = $projectId;
+        $this->project_id = $project_id;
     }
     /**
      * Set description
@@ -49,11 +49,11 @@ class UpdateTaskEntity
 
      /**
      * Set image attachment
-     * @param string $imageAttachment
+     * @param string $image_attachment
      */
-    public function setImageAttachment(string $imageAttachment): void
+    public function setImageAttachment(string $image_attachment): void
     {
-        $this->imageAttachment = $imageAttachment;
+        $this->image_attachment = $image_attachment;
     }
 
      /**
