@@ -4,7 +4,7 @@ namespace App\Http\Requests\Task;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ListTasksRequest extends FormRequest
+class SearchTasksRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,6 +22,15 @@ class ListTasksRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'project_id' => 'integer|exists:projects,id',
+            'title' => 'string|max:255',
+            'description' => 'string',
+            'priority' => 'string',
+            'image_attachment' => 'string',
+            'author' => 'string',
+            'assignee' => 'string',
+            'created_at' => 'string',
+            'updated_at' => 'string',
         ];
     }
 }

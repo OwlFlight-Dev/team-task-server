@@ -9,6 +9,7 @@ use App\Http\Requests\Task\CreateTaskRequest;
 use App\Http\Requests\Task\DeleteTaskRequest;
 use App\Http\Requests\Task\ListTasksRequest;
 use App\Http\Requests\Task\ReorderTasksRequest;
+use App\Http\Requests\Task\SearchTasksRequest;
 use App\Http\Requests\Task\UpdateTaskRequest;
 use App\Http\Requests\Task\UpdateTaskStatus;
 use App\Services\ProjectService;
@@ -35,6 +36,23 @@ class TaskController extends Controller
             'success' => true,
             'tasks' => $task,
             'message' => "Tasks created successfully.",
+        ]); // 200
+    }
+
+    /**
+     * Endpoint to search task by condition
+     * @param SearchTasksRequest $request
+     * @return JsonResponse
+     */
+    public function searchTasks(SearchTasksRequest $request): JsonResponse
+    {
+        // Retrieve query parameters from the request
+        $tasks = TaskService::search($request);
+
+        return response()->json([
+            'success' => true,
+            'tasks' => $tasks,
+            'message' => "Tasks retrieved successfully.",
         ]); // 200
     }
     /**

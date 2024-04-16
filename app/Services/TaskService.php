@@ -6,6 +6,7 @@ use App\Definitions\TaskStatus;
 use App\Entities\CreateTaskEntity;
 use App\Entities\TaskEntity;
 use App\Entities\UpdateTaskEntity;
+use App\Http\Requests\Task\SearchTasksRequest;
 use App\Models\Task;
 use Illuminate\Support\Facades\DB;
 
@@ -33,6 +34,44 @@ class TaskService
 
         // return created task
         return $task;
+    }
+
+    /**
+     * Search task by condition passed
+     * @param SearchTasksRequest $request
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public static function search(SearchTasksRequest $request): \Illuminate\Database\Eloquent\Collection
+    {
+        return Task::query()
+            ->when($request->filled('project_id'), function ($query) use ($request) {
+                return $query->where('project_id', $request->input('project_id'));
+            })
+            ->when($request->filled('title'), function ($query) use ($request) {
+                return $query->where('title', 'like', '%' . $request->input('title') . '%');
+            })
+            ->when($request->filled('priority'), function ($query) use ($request) {
+                return $query->where('priority', $request->input('priority'));
+            })
+            ->when($request->filled('description'), function ($query) use ($request) {
+                return $query->where('description', 'like', '%' . $request->input('description') . '%');
+            })
+            ->when($request->filled('image_attachment'), function ($query) use ($request) {
+                return $query->where('image_attachment', $request->input('image_attachment'));
+            })
+            ->when($request->filled('author'), function ($query) use ($request) {
+                return $query->where('author', $request->input('author'));
+            })
+            ->when($request->filled('assignee'), function ($query) use ($request) {
+                return $query->where('assignee', $request->input('assignee'));
+            })
+            ->when($request->filled('created_at'), function ($query) use ($request) {
+                return $query->whereDate('created_at', $request->input('createdAt'));
+            })
+            ->when($request->filled('updated_at'), function ($query) use ($request) {
+                return $query->whereDate('updated_at', $request->input('updated_at'));
+            })
+            ->get();
     }
 
     /**
