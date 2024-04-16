@@ -22,3 +22,8 @@ composer install
 ```bash
 php artisan migrate --seed
 ```
+
+### 4. Start the server
+```bash
+php artisan serve
+```
