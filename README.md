@@ -10,7 +10,7 @@ Before getting started, ensure that you have the following dependencies installe
 
 ### 1. Clone the Repository
 ```bash
-git clone git@github.com:OwlFlight-Dev/team-task-server.git
+https://github.com/OwlFlight-Dev/team-task-server.git
 ```
 
 ### 2. Install Dependencies
