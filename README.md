@@ -32,3 +32,6 @@ php artisan migrate --seed
 ```bash
 php artisan serve
 ```
+
+### Postman Collection
+- Download `Team_Task_CRUD.postman_collection.json` in the same directory as this README.md
