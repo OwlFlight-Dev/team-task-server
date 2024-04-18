@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->foreignId('project_id')->nullable()->constrained();
             $table->string('description')->nullable();
-            $table->string('image_attachment')->nullable();
+            $table->longText('image_attachment')->nullable();
             $table->string('author')->nullable()->index();
             $table->string('status')->default(TaskStatus::NEW)->index(); // default `new`
             $table->string('assignee')->nullable()->index();
